@@ -18,6 +18,16 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve('../frontend/index.html'));
 });
 
+app.get('/toSignup', (req, res) => {
+	app.use(express.static("../frontend"));
+    res.sendFile(path.resolve('../frontend/html/signup.html'));
+})
+
+app.get('/toLogin', (req, res) => {
+	app.use(express.static("../frontend"));
+    res.sendFile(path.resolve('../frontend/index.html'));
+})
+
 app.post('/make-new-user', async (req, res) => {
 	try {
 		const salt = await bcrypt.genSalt() 

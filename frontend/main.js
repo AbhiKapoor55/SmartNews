@@ -1,5 +1,5 @@
-const log = console.log
 
+const log = console.log
 
 function authenticate(e){
 	const emailEntered = document.getElementById("inputEmail").value.trim()
@@ -34,6 +34,14 @@ function authenticate(e){
 		}
 	})
 	
+}
+
+function toSignup(e){
+	window.location.href = '/toSignup'
+}
+
+function toLogin(e){
+	window.location.href = '/toLogin'
 }
 
 
