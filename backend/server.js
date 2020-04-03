@@ -36,7 +36,7 @@ app.post('/login', async (req, res) => {
 	const user = users.find(user => user.username === req.body.username)
 
 	if(user == null){
-		return res.status(400).send("Cannot Find! ")
+		return res.status(400).send({})
 	}
 
 	try {
@@ -47,7 +47,7 @@ app.post('/login', async (req, res) => {
 		}
 
 	} catch {
-		res.status(500).send()
+		res.status(500).send({})
 	}
 	
 		

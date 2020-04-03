@@ -22,9 +22,16 @@ function authenticate(e){
 	});
 
 	fetch(authRequest).then(res => {
+		if(res.status === 400){
+			alert("User does not exist!")
+		}
 		return res.json()
 	}).then(resp => {
-		console.log(resp.Success)
+		if(resp.Success === 1){
+			alert("Access Granted")
+		} else {
+			alert("Access Denied")
+		}
 	})
 	
 }
