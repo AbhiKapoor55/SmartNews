@@ -22,8 +22,8 @@ app.post('/make-new-user', async (req, res) => {
 	try {
 		const salt = await bcrypt.genSalt() 
 		const hashedPassword = await bcrypt.hash(req.body.password, salt)
-		console.log("Salt is " + salt)
-		console.log("HashedPassword is " + hashedPassword)
+		// console.log("Salt is " + salt)
+		// console.log("HashedPassword is " + hashedPassword)
 		const user = { username: req.body.username, password: hashedPassword} 
 		users.push(user)
 		res.status(201).send()

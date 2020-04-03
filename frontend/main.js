@@ -2,10 +2,8 @@ const log = console.log
 
 
 function authenticate(e){
-	console.log("Authenticating...")
 	const emailEntered = document.getElementById("inputEmail").value.trim()
 	const passwordEntered = document.getElementById("inputPassword").value.trim()
-	console.log(emailEntered + "    " + passwordEntered)
 
 	const userData = {
 		username: emailEntered, 
@@ -21,16 +19,18 @@ function authenticate(e){
         }
 	});
 
+	const authRequired = document.getElementById("authRequired");
+
 	fetch(authRequest).then(res => {
 		if(res.status === 400){
-			alert("User does not exist!")
+			authRequired.innerHTML = "User Does Not Exist"
 		}
 		return res.json()
 	}).then(resp => {
 		if(resp.Success === 1){
-			alert("Access Granted")
+			authRequired.innerHTML = "Access Granted"
 		} else {
-			alert("Access Denied")
+			authRequired.innerHTML = "Access Denied"
 		}
 	})
 	
