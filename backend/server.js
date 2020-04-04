@@ -59,7 +59,6 @@ app.post('/login', async (req, res) => {
 	} catch {
 		res.status(500).send({})
 	}
-	
 		
 })
 

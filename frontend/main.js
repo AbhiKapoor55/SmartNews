@@ -36,6 +36,20 @@ function authenticate(e){
 	
 }
 
+function signupNewUser(e){
+	const emailEntered = document.getElementById("inputEmail").value.trim()
+	const displayNameEntered = document.getElementById("inputDisplayName").value.trim()
+	const passwordEntered = document.getElementById("inputPassword").value.trim()
+	const confirmPasswordEntered = document.getElementById("inputConfirmPassword").value.trim()
+	const countryEntered = document.getElementById("inputCountry").value.trim()
+
+	console.log("Email Entered: " + emailEntered)
+	console.log("Display Name Entered: " + displayNameEntered)
+	console.log("Password Entered: " + passwordEntered)
+	console.log("Confirm Password Entered: " + confirmPasswordEntered)
+	console.log("Country Entered: " + countryEntered)
+}
+
 function toSignup(e){
 	window.location.href = '/toSignup'
 }
