@@ -34,7 +34,7 @@ app.post('/make-new-user', async (req, res) => {
 		const hashedPassword = await bcrypt.hash(req.body.password, salt)
 		// console.log("Salt is " + salt)
 		// console.log("HashedPassword is " + hashedPassword)
-		const user = { username: req.body.username, password: hashedPassword} 
+		const user = { email: req.body.email, password: hashedPassword} 
 		users.push(user)
 		res.status(201).send()
 	} catch {
@@ -42,8 +42,15 @@ app.post('/make-new-user', async (req, res) => {
 	}
 })
 
+app.get('/get-all-users', (req, res) => {
+	for(let i = 0;i<users.length;i++){
+		console.log(users[i].email)
+	}
+	res.status(200).send({})
+})
+
 app.post('/login', async (req, res) => {
-	const user = users.find(user => user.username === req.body.username)
+	const user = users.find(user => user.email === req.body.email)
 
 	if(user == null){
 		return res.status(400).send({})
@@ -61,8 +68,6 @@ app.post('/login', async (req, res) => {
 	}
 		
 })
-
-
 
 
 module.exports = app;
