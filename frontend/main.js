@@ -36,8 +36,10 @@ function authenticateUser(e){
 	}).then(resp => {
 		if(resp.Success === 1){
 			authRequired.innerHTML = "Access Granted"
+			authRequired.style.color = "green"
 		} else {
 			authRequired.innerHTML = "Access Denied"
+			authRequired.style.color = "red"
 		}
 	}).catch(err => {
 		console.log("Authentication Failed")
