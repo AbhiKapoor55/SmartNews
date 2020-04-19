@@ -25,8 +25,6 @@ function authenticateUser(e){
         }
 	});
 
-	console.log("DONE")
-
 	fetch(authRequest).then(res => {
 		if(res.status === 400){
 			authRequired.innerHTML = "User Does Not Exist"
@@ -37,6 +35,7 @@ function authenticateUser(e){
 		if(resp.Success === 1){
 			authRequired.innerHTML = "Access Granted"
 			authRequired.style.color = "green"
+			window.location.href = '/homepage'
 		} else {
 			authRequired.innerHTML = "Access Denied"
 			authRequired.style.color = "red"
@@ -44,22 +43,6 @@ function authenticateUser(e){
 	}).catch(err => {
 		console.log("Authentication Failed")
 	})
-
-
-	// fetch(authRequest).then(res => {
-	// 	if(res.status === 400){
-	// 		authRequired.innerHTML = "User Does Not Exist"
-	// 	}
-	// 	return res.json()
-	// }).then(resp => {
-	// 	if(resp.Success === 1){
-	// 		authRequired.innerHTML = "Access Granted"
-	// 	} else {
-	// 		authRequired.innerHTML = "Access Denied"
-	// 	}
-	// }).catch(err => {
-	// 	console.log("Authentication Failed")
-	// })
 	
 }
 
@@ -112,28 +95,4 @@ function toLogin(e){
 }
 
 
-/*
-function startFunction(e){
-	console.log("Clicked! ")
-	const u = "http://newsapi.org/v2/top-headlines?country=ca&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
-	fetch(u).then(res => {
-		return res.json()
-	}).then(resp => {
-		displayResults(resp)
-	}).catch(err => {
-		console.log("ERROR")
-	})
-}
-
-function displayResults(resp){
-	console.log("You have " + resp.totalResults + " results!")
-	
-	console.log("---------------------------------------------")
-	for(let i = 0;i<2;i++){
-		console.log(resp.articles[i])
-	}
-	console.log("---------------------------------------------")
-	
-}
-*/
 

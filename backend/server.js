@@ -23,6 +23,11 @@ app.get('/toSignup', (req, res) => {
     res.sendFile(path.resolve('../frontend/html/signup.html'));
 })
 
+app.get('/homepage', (req, res) => {
+	app.use(express.static("../frontend"));
+    res.sendFile(path.resolve('../frontend/html/mainpage.html'));
+})
+
 app.get('/toLogin', (req, res) => {
 	app.use(express.static("../frontend"));
     res.sendFile(path.resolve('../frontend/index.html'));
