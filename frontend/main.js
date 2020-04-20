@@ -12,8 +12,6 @@ function authenticateUser(e){
 		password: passwordEntered
 	};
 
-	console.log("Reached2")
-
 	const authRequired = document.getElementById("authRequired")
 
 	const authRequest = new Request('/login', {
@@ -44,6 +42,35 @@ function authenticateUser(e){
 		console.log("Authentication Failed")
 	})
 	
+}
+
+function loadNews(e){
+	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
+
+	fetch(newsApi).then(res => {
+		return res.json()
+	}).then(resp => {
+		console.log(resp.articles[0])
+		const displayImageOne = document.getElementsByClassName("item-box-blog")[0]
+		const displayImageTwo = document.getElementsByClassName("item-box-blog")[1]
+		const displayImageThree = document.getElementsByClassName("item-box-blog")[2]
+		displayImage(displayImageOne, resp.articles[0])
+		displayImage(displayImageTwo, resp.articles[1])
+		displayImage(displayImageThree, resp.articles[2])
+	})
+
+}
+
+function displayImage(parentElement, image){
+	
+	parentElement.children[0].children[1].children[0].src=image.urlToImage
+	parentElement.children[0].children[1].children[0].height="400"
+	parentElement.children[0].children[1].children[0].weight="500"
+	parentElement.children[1].children[0].children[0].children[0].innerText = image.title
+	parentElement.children[1].children[2].children[0].innerText = image.description
+
+	
+	console.log()
 }
 
 function signupNewUser(e){
