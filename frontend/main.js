@@ -51,26 +51,31 @@ function loadNews(e){
 		return res.json()
 	}).then(resp => {
 		console.log(resp.articles[0])
-		const displayImageOne = document.getElementsByClassName("item-box-blog")[0]
-		const displayImageTwo = document.getElementsByClassName("item-box-blog")[1]
-		const displayImageThree = document.getElementsByClassName("item-box-blog")[2]
-		displayImage(displayImageOne, resp.articles[0])
-		displayImage(displayImageTwo, resp.articles[1])
-		displayImage(displayImageThree, resp.articles[2])
+		const panels = document.getElementsByClassName("item-box-blog")
+		for(let i = 0;i<panels.length;i++){
+			displayNews(panels[i], resp.articles[i])
+		}
 	})
 
 }
 
-function displayImage(parentElement, image){
-	
+function displayNews(parentElement, image){
+
 	parentElement.children[0].children[1].children[0].src=image.urlToImage
 	parentElement.children[0].children[1].children[0].height="400"
 	parentElement.children[0].children[1].children[0].weight="500"
 	parentElement.children[1].children[0].children[0].children[0].innerText = image.title
 	parentElement.children[1].children[2].children[0].innerText = image.description
+	parentElement.children[0].children[0].children[0].innerText = convertDate(image.publishedAt.toString())
+}
 
-	
-	console.log()
+function convertDate(date){
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	const day = date.split("-")[2].substring(0,2).trim() 
+	const month = parseInt(date.split("-")[1].trim()) 
+	const year = date.split("-")[0] 
+
+	return months[month] + " " + day + ", " + year
 }
 
 function signupNewUser(e){
