@@ -59,6 +59,14 @@ function loadNews(e){
 
 }
 
+function toHomepage(){
+	window.location.href = "/homepage"
+}
+
+function toAboutDeveloper(){
+	window.location.href = "/toAboutPage"
+}
+
 function displayNews(parentElement, image){
 
 	parentElement.children[0].children[1].children[0].src=image.urlToImage
