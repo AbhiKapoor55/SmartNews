@@ -132,7 +132,7 @@ function loadHealthNews(e){
 		const panels = document.getElementsByClassName("item-box-blog")
 		for(let i = 0;i<panels.length;i++){
 			displayNews(panels[i], resp.articles[i])
-			console.log(resp.articles[i])
+			console.log(resp.articles[i].title)
 		}
 	})
 }
@@ -151,6 +151,7 @@ function displayNews(parentElement, image){
 	parentElement.children[1].children[0].children[0].children[0].innerText = image.title
 	parentElement.children[1].children[2].children[0].innerText = image.description
 	parentElement.children[0].children[0].children[0].innerText = convertDate(image.publishedAt.toString())
+	parentElement.children[1].children[0].children[0].children[0].parentElement.href=image.url
 }
 
 function convertDate(date){
