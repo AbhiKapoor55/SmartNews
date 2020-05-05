@@ -3,8 +3,9 @@
   <head>
     <title>Breeze - Welcome</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../signup_css.css">
+    <link rel="stylesheet" type="text/css" href="../css/view.css">
     <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet"><meta charset="utf-8"/>
+
 
   </head>
   <body onload="loadNews()">
@@ -21,18 +22,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" onclick="toHomepage()">Home
                     <span class="sr-only">(current)</span>
                   </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Sports</a>
+              <a class="nav-link" onclick="loadSportsNews()">Sports</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Politics</a>
+              <a class="nav-link" onclick="loadBusinessNews()">Business</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Economics</a>
+              <a class="nav-link" onclick="loadHealthNews()">Health</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="loadPoliticsNews()">Politics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="loadEntertainmentNews()">Entertainment</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" onclick="toAboutDeveloper()" >About the Developer</a>
@@ -46,6 +53,28 @@
     <br>
     <br>
     <br>
+
+    <h3 class="categoryDisplay">Home</h3>
+
+    <div class="onoffswitch3">
+      <label class="onoffswitch3-label" for="myonoffswitch3">
+          <span class="onoffswitch3-inner">
+              <span class="onoffswitch3-active">
+                  <marquee class="scroll-text"> 
+                    Avengers: Infinity War's Iron Spider Suit May Use Bleeding Edge Tech  
+                    <span class="glyphicon glyphicon-forward">
+                  
+                    </span> 
+                    Russo brothers ask for fans not to spoil Avengers: Infinity War 
+                    <span class="glyphicon glyphicon-forward">
+                      
+                    </span>  
+                    Bucky's Arm Miraculously Regenerates On Avengers: Infinity War Poster
+                  </marquee>
+              </span>
+          </span>
+      </label>
+    </div>
 
     <div class="container cta-100 ">
         <div class="container">

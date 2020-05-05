@@ -5,8 +5,6 @@ function authenticateUser(e){
 	const emailEntered = document.getElementById("inputEmail").value.trim()
 	const passwordEntered = document.getElementById("inputPassword").value.trim()
 
-	console.log("Reached1")
-
 	const userData = {
 		email: emailEntered, 
 		password: passwordEntered
@@ -45,26 +43,104 @@ function authenticateUser(e){
 }
 
 function loadNews(e){
+	activateTicker()
+	document.getElementsByClassName("categoryDisplay")[0].innerText = "Home"
 	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
 
 	fetch(newsApi).then(res => {
 		return res.json()
 	}).then(resp => {
-		console.log(resp.articles[0])
 		const panels = document.getElementsByClassName("item-box-blog")
 		for(let i = 0;i<panels.length;i++){
 			displayNews(panels[i], resp.articles[i])
 		}
 	})
-
 }
 
-function toHomepage(){
-	window.location.href = "/homepage"
+function loadBusinessNews(e){
+	console.log("business")
+	document.getElementsByClassName("categoryDisplay")[0].innerText = "Business News"
+	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&category=business&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
+
+	fetch(newsApi).then(res => {
+		return res.json()
+	}).then(resp => {
+		const panels = document.getElementsByClassName("item-box-blog")
+		for(let i = 0;i<panels.length;i++){
+			displayNews(panels[i], resp.articles[i])
+			console.log(resp.articles[i])
+		}
+	})
 }
 
-function toAboutDeveloper(){
-	window.location.href = "/toAboutPage"
+function loadEntertainmentNews(e){
+	console.log("entertainment")
+	document.getElementsByClassName("categoryDisplay")[0].innerText = "Entertainment News"
+	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&category=entertainment&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
+
+	fetch(newsApi).then(res => {
+		return res.json()
+	}).then(resp => {
+		const panels = document.getElementsByClassName("item-box-blog")
+		for(let i = 0;i<panels.length;i++){
+			displayNews(panels[i], resp.articles[i])
+			console.log(resp.articles[i])
+		}
+	})
+}
+
+function loadPoliticsNews(e){
+	console.log("politics")
+	document.getElementsByClassName("categoryDisplay")[0].innerText = "Politics News"
+	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&category=politics&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
+
+	fetch(newsApi).then(res => {
+		return res.json()
+	}).then(resp => {
+		const panels = document.getElementsByClassName("item-box-blog")
+		for(let i = 0;i<panels.length;i++){
+			displayNews(panels[i], resp.articles[i])
+			console.log(resp.articles[i])
+		}
+	})
+}
+
+function loadSportsNews(e){
+	console.log("sports")
+	document.getElementsByClassName("categoryDisplay")[0].innerText = "Sports News"
+	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&category=sport&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
+
+	fetch(newsApi).then(res => {
+		return res.json()
+	}).then(resp => {
+		const panels = document.getElementsByClassName("item-box-blog")
+		for(let i = 0;i<panels.length;i++){
+			displayNews(panels[i], resp.articles[i])
+			console.log(resp.articles[i])
+		}
+	})
+}
+
+function loadHealthNews(e){
+	console.log("health")
+	document.getElementsByClassName("categoryDisplay")[0].innerText = "Health News"
+	const newsApi = "http://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=217faaf5e7fc416cbba9c1d510d7a3a5"
+
+	fetch(newsApi).then(res => {
+		return res.json()
+	}).then(resp => {
+		const panels = document.getElementsByClassName("item-box-blog")
+		for(let i = 0;i<panels.length;i++){
+			displayNews(panels[i], resp.articles[i])
+			console.log(resp.articles[i])
+		}
+	})
+}
+
+
+function activateTicker(){
+	const tickerParent = document.getElementsByClassName("onoffswitch3")[0]
+	console.log(tickerParent.children[0].children[0].children[0].children)
 }
 
 function displayNews(parentElement, image){
@@ -92,12 +168,6 @@ function signupNewUser(e){
 	const passwordEntered = document.getElementById("inputPassword").value.trim()
 	const confirmPasswordEntered = document.getElementById("inputConfirmPassword").value.trim()
 	const countryEntered = document.getElementById("inputCountry").value.trim()
-
-	console.log("Email Entered: " + emailEntered)
-	console.log("Display Name Entered: " + displayNameEntered)
-	console.log("Password Entered: " + passwordEntered)
-	console.log("Confirm Password Entered: " + confirmPasswordEntered)
-	console.log("Country Entered: " + countryEntered)
 
 	const userData = {
 		email: emailEntered, 
@@ -132,6 +202,15 @@ function toSignup(e){
 
 function toLogin(e){
 	window.location.href = '/toLogin'
+}
+
+function toHomepage(){
+	window.location.href = "/homepage"
+	loadNews()
+}
+
+function toAboutDeveloper(){
+	window.location.href = "/toAboutPage"
 }
 
 
